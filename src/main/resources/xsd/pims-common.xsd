@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.avea.com.tr/pims/schema-common"
+	xmlns:common="http://www.avea.com.tr/pims/schema-common">
+
+	<xs:complexType name="Address">
+		<xs:sequence>
+			<xs:element name="Msisdn" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="Asid" type="xs:string" minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="NamedParam">
+		<xs:sequence>
+			<xs:element name="Key" type="xs:string"  minOccurs="1"  maxOccurs="1" />
+			<xs:element name="Value" type="xs:string"  minOccurs="1"  maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!--  
+	<xs:simpleType name="ContentTransferEncodingType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="base64" />
+			<xs:enumeration value="binary" />
+			<xs:enumeration value="7bit" />
+			<xs:enumeration value="8bit" />
+			<xs:enumeration value="quoted-printable" />
+			<xs:enumeration value="ietf-token" />
+			<xs:enumeration value="x-token" />
+		</xs:restriction>
+	</xs:simpleType>
+	-->
+
+	<xs:complexType name="Attachment">
+		<xs:sequence>
+			<xs:element name="content" type="xs:base64Binary" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="contentLocation" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="contentType" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="contentId" type="xs:string" minOccurs="0" maxOccurs="1"/>
+		    <xs:element name="contentTransferEncodingType" type="xs:string" minOccurs="1" maxOccurs="1">
+		    	<xs:annotation>
+		    		<xs:documentation>base64</xs:documentation>
+		    	</xs:annotation>
+		    </xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:simpleType name="ChargingStatus">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="INIT" />
+			<xs:enumeration value="COMMITED" />
+			<xs:enumeration value="FAILED" />
+			<xs:enumeration value="PARTIALLY_COMMITED" />
+			<xs:enumeration value="RESERVED" />
+			<xs:enumeration value="PARTIALLY_RESERVED" />
+			<xs:enumeration value="RELEASED" />
+			<xs:enumeration value="TIMED_OUT" />
+			<xs:enumeration value="TO_BE_RETRIED" />
+		</xs:restriction>
+	</xs:simpleType>
+		
+	<xs:complexType name="SubscriptionOfferProfile">
+		<xs:sequence>
+			<xs:element name="ServiceProfileAttributeKey" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="AttrValue" type="xs:string" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+		
+</xs:schema>

@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: wsps
+
+pims:
+  partner:
+    ws:
+      common-xsd-location: "xsd/pims-common.xsd"
+      subscription:
+        port-type-name: "Pims"
+        location-uri: "/services"
+        xsd-location: "xsd/wsps-subscription.xsd"
+        namespace: "http://www.avea.com.tr/pims-partner/schema/subscription"

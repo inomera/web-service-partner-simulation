@@ -1,0 +1,111 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.3.2'
+    id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'com.inomera.wsps'
+version = '0.0.1-SNAPSHOT'
+
+
+ext {
+    versions = [
+            commons_lang3 : '3.15.0',
+            xmlschema_core: '2.3.1'
+    ]
+}
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+configurations {
+    all*.exclude group: "org.springframework.boot", module: "spring-boot-starter-tomcat"
+
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+
+    jaxb
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/java'
+            srcDir 'build/generated-sources/jaxb'
+        }
+    }
+}
+
+dependencies {
+    implementation("org.springframework.boot:spring-boot-starter-undertow") {
+        exclude group: "io.undertow", module: "undertow-websockets-jsr"
+    }
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-web-services'
+    implementation 'wsdl4j:wsdl4j'
+    implementation "org.apache.ws.xmlschema:xmlschema-core:${versions.xmlschema_core}"
+    implementation "org.apache.commons:commons-lang3:${versions.commons_lang3}"
+    implementation 'jakarta.xml.bind:jakarta.xml.bind-api:4.0.2'
+
+    jaxb 'javax.activation:activation:1.1'
+    jaxb 'javax.xml.bind:jaxb-api:2.3.1'
+    jaxb 'com.sun.xml.bind:jaxb-impl:2.3.3'
+    jaxb "org.glassfish.jaxb:jaxb-xjc"
+    jaxb 'org.glassfish.jaxb:jaxb-runtime:4.0.3'
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+
+tasks.register('genJaxb') {
+    def jaxbTargetDir = file("${buildDir}/generated-sources/jaxb")
+    def xsdDir = file("${projectDir}/src/main/resources/xsd")
+    def episodeCommon = file("${xsdDir}/common.episode.xml")
+
+    inputs.files fileTree(xsdDir).include("*.xsd")
+    inputs.file episodeCommon
+    outputs.dir jaxbTargetDir
+
+    doLast {
+        jaxbTargetDir.mkdirs()
+
+        ant.taskdef(name: 'xjc', classname: 'com.sun.tools.xjc.XJCTask', classpath: configurations.jaxb.asPath)
+
+        // Generate common schema
+        ant.xjc(destdir: jaxbTargetDir,
+                schema: "${xsdDir}/pims-common.xsd",
+                package: 'com.inomera.ws.schema.common') {
+            arg(value: '-extension')
+            arg(value: "-episode")
+            arg(value: episodeCommon)
+        }
+
+        // Generate subscription schema
+        ant.xjc(destdir: jaxbTargetDir,
+                schema: "${xsdDir}/wsps-subscription.xsd",
+                package: 'com.inomera.ws.schema.wsps.subscription') {
+            arg(value: '-extension')
+            arg(value: "-b")
+            arg(value: episodeCommon)
+        }
+    }
+}
+
+compileJava.dependsOn genJaxb
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+

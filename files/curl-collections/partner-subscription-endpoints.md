@@ -1,0 +1,282 @@
+## SubscriptionCreated
+
+```shell
+curl --user username:password \
+    -X POST --location "http://localhost:8080/services" \
+    -H "Content-Type: text/xml;charset=UTF-8" \
+    -d '<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <ns0:SubscriptionCreatedRequest xmlns:ns0="http://www.avea.com.tr/pims-partner/schema/subscription">
+            <NotificationKey>NOT260778</NotificationKey>
+            <Subscription>
+                <Key>SUB3538</Key>
+                <OfferKey>OFRMEDYA</OfferKey>
+                <ProductKey>PRDMEDYA</ProductKey>
+                <CreateDate>2024-08-21T19:44:13.468+03:00</CreateDate>
+                <StartDate>2024-08-21T19:44:13.468+03:00</StartDate>
+                <LastRenewalDate>2024-08-21T19:44:13.468+03:00</LastRenewalDate>
+                <RenewalCount>1</RenewalCount>
+                <Status>ACTIVE</Status>
+                <RecurringPricingPlans>
+                    <AbstractSubscriptionPricingPlan>
+                        <Key>SPP27750</Key>
+                        <SubscriptionKey>SUB3538</SubscriptionKey>
+                        <PricingPlanKey>OPP190083</PricingPlanKey>
+                        <CreateDate>2024-08-21T19:44:13.468+03:00</CreateDate>
+                    </AbstractSubscriptionPricingPlan>
+                    <CurrentInterval>1</CurrentInterval>
+                    <AutoRenew>true</AutoRenew>
+                    <CreateDate>2024-08-21T19:44:13.468+03:00</CreateDate>
+                    <StartDate>2024-08-21T19:44:13.468+03:00</StartDate>
+                    <LastRenewalDate>2024-08-21T19:44:13.468+03:00</LastRenewalDate>
+                    <NextRenewalDate>2024-09-20T19:44:13.468+03:00</NextRenewalDate>
+                    <UnpaidPeriodEndDate>2024-12-20T19:44:13.468+03:00</UnpaidPeriodEndDate>
+                    <PeriodBalanceInMillis>0</PeriodBalanceInMillis>
+                </RecurringPricingPlans>
+                <UsagePricingPlans>
+                    <AbstractSubscriptionPricingPlan>
+                        <Key>SPP27748</Key>
+                        <SubscriptionKey>SUB3538</SubscriptionKey>
+                        <PricingPlanKey>OPP190081</PricingPlanKey>
+                        <CreateDate>2024-08-21T19:44:13.468+03:00</CreateDate>
+                    </AbstractSubscriptionPricingPlan>
+                    <ServiceKey>SRVCONTENTMEDYA</ServiceKey>
+                    <ChargingModel>PUNIT</ChargingModel>
+                    <StartDate>2024-08-21T19:44:13.468+03:00</StartDate>
+                </UsagePricingPlans>
+                <UsagePricingPlans>
+                    <AbstractSubscriptionPricingPlan>
+                        <Key>SPP27746</Key>
+                        <SubscriptionKey>SUB3538</SubscriptionKey>
+                        <PricingPlanKey>OPP190080</PricingPlanKey>
+                        <CreateDate>2024-08-21T19:44:13.468+03:00</CreateDate>
+                    </AbstractSubscriptionPricingPlan>
+                    <ServiceKey>SRVSMSMOMEDYA</ServiceKey>
+                    <ChargingModel>PUNIT</ChargingModel>
+                    <StartDate>2024-08-21T19:44:13.468+03:00</StartDate>
+                </UsagePricingPlans>
+                <UsagePricingPlans>
+                    <AbstractSubscriptionPricingPlan>
+                        <Key>SPP27744</Key>
+                        <SubscriptionKey>SUB3538</SubscriptionKey>
+                        <PricingPlanKey>OPP190082</PricingPlanKey>
+                        <CreateDate>2024-08-21T19:44:13.468+03:00</CreateDate>
+                    </AbstractSubscriptionPricingPlan>
+                    <ServiceKey>SRVSMSMTMEDYA</ServiceKey>
+                    <ChargingModel>PUNIT</ChargingModel>
+                    <StartDate>2024-08-21T19:44:13.468+03:00</StartDate>
+                </UsagePricingPlans>
+            </Subscription>
+            <Address>
+                <Msisdn>905554443323</Msisdn>
+            </Address>
+            <TxKey>TX1672760</TxKey>
+            <NamedParam>
+            <Key>activationCode</Key>
+            <Value>32ChdQePYw</Value>
+         </NamedParam>
+        </ns0:SubscriptionCreatedRequest>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>'
+```
+
+## SubscriptionToBeDeactivated
+
+```shell
+curl --user username:password \
+    -X POST --location "http://localhost:8080/services" \
+    -H "Content-Type: text/xml;charset=UTF-8" \
+    -d '<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <ns0:SubscriptionToBeDeactivatedRequest xmlns:ns0="http://www.avea.com.tr/pims-partner/schema/subscription">
+            <NotificationKey>NOT260844</NotificationKey>
+            <Subscription>
+                <Key>SUB3604</Key>
+                <OfferKey>OFRMEDYA</OfferKey>
+                <ProductKey>PRDMEDYA</ProductKey>
+                <CreateDate>2024-08-22T10:39:38.643+03:00</CreateDate>
+                <StartDate>2024-08-22T10:39:38.643+03:00</StartDate>
+                <EndDate>2024-09-21T10:39:38.643+03:00</EndDate>
+                <LastRenewalDate>2024-08-22T10:39:38.643+03:00</LastRenewalDate>
+                <RenewalCount>1</RenewalCount>
+                <Status>ACTIVE</Status>
+                <RecurringPricingPlans>
+                    <AbstractSubscriptionPricingPlan>
+                        <Key>SPP28108</Key>
+                        <SubscriptionKey>SUB3604</SubscriptionKey>
+                        <PricingPlanKey>OPP190083</PricingPlanKey>
+                        <CreateDate>2024-08-22T10:39:38.643+03:00</CreateDate>
+                    </AbstractSubscriptionPricingPlan>
+                    <CurrentInterval>1</CurrentInterval>
+                    <AutoRenew>true</AutoRenew>
+                    <CreateDate>2024-08-22T10:39:38.643+03:00</CreateDate>
+                    <StartDate>2024-08-22T10:39:38.643+03:00</StartDate>
+                    <LastRenewalDate>2024-08-22T10:39:38.643+03:00</LastRenewalDate>
+                    <NextRenewalDate>2024-09-21T10:39:38.643+03:00</NextRenewalDate>
+                    <UnpaidPeriodEndDate>2024-12-21T10:39:38.643+03:00</UnpaidPeriodEndDate>
+                    <PeriodBalanceInMillis>0</PeriodBalanceInMillis>
+                </RecurringPricingPlans>
+                <UsagePricingPlans>
+                    <AbstractSubscriptionPricingPlan>
+                        <Key>SPP28106</Key>
+                        <SubscriptionKey>SUB3604</SubscriptionKey>
+                        <PricingPlanKey>OPP190081</PricingPlanKey>
+                        <CreateDate>2024-08-22T10:39:38.643+03:00</CreateDate>
+                    </AbstractSubscriptionPricingPlan>
+                    <ServiceKey>SRVCONTENTMEDYA</ServiceKey>
+                    <ChargingModel>PUNIT</ChargingModel>
+                    <StartDate>2024-08-22T10:39:38.643+03:00</StartDate>
+                </UsagePricingPlans>
+                <UsagePricingPlans>
+                    <AbstractSubscriptionPricingPlan>
+                        <Key>SPP28102</Key>
+                        <SubscriptionKey>SUB3604</SubscriptionKey>
+                        <PricingPlanKey>OPP190082</PricingPlanKey>
+                        <CreateDate>2024-08-22T10:39:38.643+03:00</CreateDate>
+                    </AbstractSubscriptionPricingPlan>
+                    <ServiceKey>SRVSMSMTMEDYA</ServiceKey>
+                    <ChargingModel>PUNIT</ChargingModel>
+                    <StartDate>2024-08-22T10:39:38.643+03:00</StartDate>
+                </UsagePricingPlans>
+                <UsagePricingPlans>
+                    <AbstractSubscriptionPricingPlan>
+                        <Key>SPP28104</Key>
+                        <SubscriptionKey>SUB3604</SubscriptionKey>
+                        <PricingPlanKey>OPP190080</PricingPlanKey>
+                        <CreateDate>2024-08-22T10:39:38.643+03:00</CreateDate>
+                    </AbstractSubscriptionPricingPlan>
+                    <ServiceKey>SRVSMSMOMEDYA</ServiceKey>
+                    <ChargingModel>PUNIT</ChargingModel>
+                    <StartDate>2024-08-22T10:39:38.643+03:00</StartDate>
+                </UsagePricingPlans>
+            </Subscription>
+            <Address>
+                <Msisdn>905554443323</Msisdn>
+            </Address>
+            <TxKey>TX1673013</TxKey>
+            <NamedParam>
+                <Key>subscriptionStopReason</Key>
+                <Value>İş ortağının isteğiyle abonelik iptal edildi.</Value>
+            </NamedParam>
+            <NamedParam>
+                <Key>com.inomera.pims.sal.so.subscription.SubscriptionStopRequestReason</Key>
+                <Value>PARTNER_DEACTIVE</Value>
+            </NamedParam>
+            <NamedParam>
+                <Key>stopChannel</Key>
+                <Value>PTRAPI</Value>
+            </NamedParam>
+            <NamedParam>
+                <Key>activationCode</Key>
+                <Value>32ChdQePYw</Value>
+            </NamedParam>
+        </ns0:SubscriptionToBeDeactivatedRequest>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>'
+```
+
+## SubscriptionDeactivated
+
+```shell
+curl --user username:password \
+-X POST --location "http://localhost:8080/services" \
+-H "Content-Type: text/xml;charset=UTF-8" \
+-d '<SOAP-ENV:Envelope
+        xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <ns0:SubscriptionDeactivatedRequest xmlns:ns0="http://www.avea.com.tr/pims-partner/schema/subscription">
+            <NotificationKey>NOT260845</NotificationKey>
+            <Subscription>
+                <Key>SUB3604</Key>
+                <OfferKey>OFRMEDYA</OfferKey>
+                <ProductKey>PRDMEDYA</ProductKey>
+                <CreateDate>2024-08-22T10:39:38.643+03:00</CreateDate>
+                <StartDate>2024-08-22T10:39:38.643+03:00</StartDate>
+                <LastRenewalDate>2024-08-22T10:39:38.643+03:00</LastRenewalDate>
+                <RenewalCount>1</RenewalCount>
+                <Status>DEACTIVE</Status>
+                <RecurringPricingPlans>
+                    <AbstractSubscriptionPricingPlan>
+                        <Key>SPP28108</Key>
+                        <SubscriptionKey>SUB3604</SubscriptionKey>
+                        <PricingPlanKey>OPP190083</PricingPlanKey>
+                        <CreateDate>2024-08-22T10:39:38.643+03:00</CreateDate>
+                    </AbstractSubscriptionPricingPlan>
+                    <CurrentInterval>1</CurrentInterval>
+                    <AutoRenew>true</AutoRenew>
+                    <CreateDate>2024-08-22T10:39:38.643+03:00</CreateDate>
+                    <StartDate>2024-08-22T1
+                        0:39:38.643+03:00
+                    </StartDate>
+                    <LastRenewalDate>2024-08-22T10:39:38.643+03:00</LastRenewalDate>
+                    <NextRenewalDate>2024-09-21T10:39:38.643+03:00</NextRenewalDate>
+                    <UnpaidPeriodEndDate>2024-12-21T10:39:38.643+03:00
+                    </UnpaidPeriodEndDate>
+                    <PeriodBalanceInMillis>-2586538526</PeriodBalanceInMillis>
+                </RecurringPricingPlans>
+                <UsagePricingPlans>
+                    <AbstractSubscriptionPricingPlan>
+                        <Key>SPP28106</Key>
+                        <SubscriptionKey>SUB3604</SubscriptionKey>
+                        <PricingPlanKey>OPP190081</PricingPlanKey>
+                        <CreateDate>2024-08-22T10:39:38.643+03:00</CreateDate>
+                    </AbstractSubscriptionPricingPlan>
+                    <ServiceKey>SRVCONTENTMEDYA</ServiceKey>
+                    <ChargingModel>PUNIT</ChargingModel>
+                    <StartDate>2024-08-22T10:39:38.643+03:00</StartDate>
+                </UsagePricingPlans>
+                <UsagePricingPlans>
+                    <AbstractSubscriptionPricingPlan>
+                        <Key>SPP28102</Key>
+                        <SubscriptionKey>SUB3604</SubscriptionKey>
+                        <PricingPlanKey>OPP190082
+                        </PricingPlanKey>
+                        <CreateDate>2024-08-22T10:39:38.643+03:00</CreateDate>
+                    </AbstractSubscriptionPricingPlan>
+                    <ServiceKey>SRVSMSMTMEDYA</ServiceKey>
+                    <ChargingModel>PUNIT</ChargingModel>
+                    <StartDate>2024-08-22T10:39:38.643+03:00</StartDate>
+                </UsagePricingPlans>
+                <UsagePricingPlans>
+                    <AbstractSubscriptionPricingPlan>
+                        <Key>SPP28104</Key>
+                        <SubscriptionKey>SUB3604</SubscriptionKey>
+                        <PricingPlanKey>OPP190080</PricingPlanKey>
+                        <CreateDate>2024-08-
+                            22T10:39:38.643+03:00
+                        </CreateDate>
+                    </AbstractSubscriptionPricingPlan>
+                    <ServiceKey>SRVSMSMOMEDYA</ServiceKey>
+                    <ChargingModel>PUNIT</ChargingModel>
+                    <StartDate>2024-08-22T10:39:38.643+03:00</StartDate>
+                </UsagePricingPlans>
+            </Subscription>
+            <Address>
+                <Msisdn>905554443323</Msisdn>
+            </Address>
+            <TxKey>TX1673019</TxKey>
+            <NamedParam>
+                <Key>subscriptionStopReason</Key>
+                <Value>İş ortağının isteğiyle abonelik iptal edildi.</Value>
+            </NamedParam>
+            <NamedParam>
+                <Key>com.inomera.pims.sal.so.subscription.SubscriptionStopRequestReason</Key>
+                <Value>PARTNER_DEACTIVE</Value>
+            </NamedParam>
+            <NamedParam>
+                <Key>stopChannel</Key>
+                <Value>PTRAPI</Value>
+            </NamedParam>
+            <NamedParam>
+                <Key>activationCode</Key>
+                <Value>32ChdQePYw</Value>
+            </NamedParam>
+        </ns0:SubscriptionDeactivatedRequest>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>'
+
+```
+

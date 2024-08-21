@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://www.avea.com.tr/pims-partner/schema/subscription" 
+	xmlns:pims="http://www.avea.com.tr/pims-partner/schema/subscription" 
+	xmlns:common="http://www.avea.com.tr/pims/schema-common">
+
+	<xs:import namespace="http://www.avea.com.tr/pims/schema-common" schemaLocation="pims-common.xsd"/>
+
+	<xs:element name="TestSubscriptionServiceRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TestKey" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="TestSubscriptionServiceResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResultCode" type="pims:SubscriptionServiceResultCode" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="SubscriptionCreatedRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationKey" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Subscription" type="pims:Subscription" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Address" type="common:Address" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="TxKey" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="PartnerReference" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="NamedParam" type="common:NamedParam" minOccurs="0"  maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SubscriptionCreatedResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ServiceResult" type="pims:SubscriptionServiceResult" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="SubscriptionDeactivatedRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationKey" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Subscription" type="pims:Subscription" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Address" type="common:Address" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="TxKey" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="PartnerReference" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="ReasonCode" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="NamedParam" type="common:NamedParam" minOccurs="0"  maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SubscriptionDeactivatedResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ServiceResult" type="pims:SubscriptionServiceResult" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SubscriptionToBeDeactivatedRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationKey" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Subscription" type="pims:SubscriptionInfo" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Address" type="common:Address" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="TxKey" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="PartnerReference" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="ReasonCode" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="NamedParam" type="common:NamedParam" minOccurs="0"  maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SubscriptionToBeDeactivatedResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ServiceResult" type="pims:SubscriptionToBeDeactivatedServiceResult" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="SubscriptionSuspendedRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationKey" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Subscription" type="pims:Subscription" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Address" type="common:Address" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="TxKey" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="PartnerReference" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="ReasonCode" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="NamedParam" type="common:NamedParam" minOccurs="0"  maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SubscriptionSuspendedResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ServiceResult" type="pims:SubscriptionServiceResult" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="SubscriptionRenewedRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationKey" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Subscription" type="pims:Subscription" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Address" type="common:Address" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="TxKey" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="PartnerReference" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="NamedParam" type="common:NamedParam" minOccurs="0"  maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SubscriptionRenewedResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ServiceResult" type="pims:SubscriptionServiceResult" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="SubscriptionResumedRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationKey" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Subscription" type="pims:Subscription" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Address" type="common:Address" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="TxKey" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="PartnerReference" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="NamedParam" type="common:NamedParam" minOccurs="0"  maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SubscriptionResumedResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ServiceResult" type="pims:SubscriptionServiceResult" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="SubscriptionRenewFailedRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationKey" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Subscription" type="pims:Subscription" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Address" type="common:Address" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="TxKey" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="PartnerReference" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="ResultCode" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="NamedParam" type="common:NamedParam" minOccurs="0"  maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SubscriptionRenewFailedResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ServiceResult" type="pims:SubscriptionServiceResult" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="SubscriptionToBeRenewedRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationKey" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Subscription" type="pims:Subscription" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Address" type="common:Address" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="TxKey" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="PartnerReference" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="RenewalDate" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="NamedParam" type="common:NamedParam" minOccurs="0"  maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SubscriptionToBeRenewedResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ServiceResult" type="pims:SubscriptionServiceResult" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="SubscriptionTrialToBeEndedRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationKey" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Subscription" type="pims:Subscription" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Address" type="common:Address" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="TxKey" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="PartnerReference" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="EndDate" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="NamedParam" type="common:NamedParam" minOccurs="0"  maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SubscriptionTrialToBeEndedResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ServiceResult" type="pims:SubscriptionServiceResult" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="Subscription">
+		<xs:sequence>
+			<xs:element name="Key" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="OfferKey" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ProductKey" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="CreateDate" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="StartDate" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="LastRenewalDate" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="RenewalCount" type="xs:integer" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Status" type="pims:SubscriptionStatus" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="SubscriptionProfile" type="common:SubscriptionOfferProfile" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="OnetimePricingPlans" type="pims:OnetimeSubscriptionPricingPlan" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="RecurringPricingPlans" type="pims:RecurringSubscriptionPricingPlan" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="UsagePricingPlans" type="pims:UsageSubscriptionPricingPlan" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SubscriptionInfo">
+		<xs:sequence>
+			<xs:element name="Key" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="OfferKey" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ProductKey" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="CreateDate" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="StartDate" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="EndDate" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="LastRenewalDate" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="RenewalCount" type="xs:integer" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Status" type="pims:SubscriptionStatus" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="SubscriptionProfile" type="common:SubscriptionOfferProfile" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="OnetimePricingPlans" type="pims:OnetimeSubscriptionPricingPlan" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="RecurringPricingPlans" type="pims:RecurringSubscriptionPricingPlan" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="UsagePricingPlans" type="pims:UsageSubscriptionPricingPlan" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AbstractSubscriptionPricingPlan">
+		<xs:sequence>
+			<xs:element name="Key" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="SubscriptionKey" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="PricingPlanKey" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="CreateDate" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OnetimeSubscriptionPricingPlan">
+		<xs:sequence>
+			<xs:element name="AbstractSubscriptionPricingPlan" type="pims:AbstractSubscriptionPricingPlan" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ChargingStatus" type="common:ChargingStatus" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RecurringSubscriptionPricingPlan">
+		<xs:sequence>
+			<xs:element name="AbstractSubscriptionPricingPlan" type="pims:AbstractSubscriptionPricingPlan" minOccurs="1" maxOccurs="1"/>
+			<!--xs:element name="ChargingStatus" type="pims:ChargingStatus" minOccurs="1" maxOccurs="1"/-->
+			<xs:element name="CurrentInterval" type="xs:integer" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="AutoRenew" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="CreateDate" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="StartDate" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="LastRenewalDate" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NextRenewalDate" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="UnpaidPeriodEndDate" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ReminderDate" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="PeriodBalanceInMillis" type="xs:integer" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UsageSubscriptionPricingPlan">
+		<xs:sequence>
+			<xs:element name="AbstractSubscriptionPricingPlan" type="pims:AbstractSubscriptionPricingPlan" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ServiceKey" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ChargingModel" type="pims:ChargingModel" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="StartDate" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="LastRenewalDate" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NextRenewalDate" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="UnpaidPeriodEndDate" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SubscriptionServiceResult">
+		<xs:sequence>
+			<xs:element name="ResultCode" type="pims:SubscriptionServiceResultCode" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ResultTxt" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="SmsMessage" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="SmsHeader" type="xs:string" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SubscriptionToBeDeactivatedServiceResult">
+		<xs:sequence>
+			<xs:element name="ResultCode" type="pims:SubscriptionServiceResultCode" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ResultTxt" type="xs:string" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:simpleType name="SubscriptionServiceResultCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="OK" />
+			<xs:enumeration value="FAILED" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="ChargingModel">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="FLAT" />
+			<xs:enumeration value="PUNIT" />
+			<xs:enumeration value="OVER" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="SubscriptionIntervalStatus">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ACTIVE" />
+			<xs:enumeration value="SUSPEND" />
+			<xs:enumeration value="END" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="SubscriptionStatus">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ACTIVE" />
+			<xs:enumeration value="SERVICE_SHORTAGE" />
+			<xs:enumeration value="PARTNER_SUSPEND" />
+			<xs:enumeration value="LINE_SUSPEND" />
+			<xs:enumeration value="CHARGING_SUSPEND" />
+			<xs:enumeration value="DEACTIVE" />
+			<xs:enumeration value="WAITING_FOR_USAGE" />
+			<xs:enumeration value="WAITING_FOR_CHARGING" />
+			<xs:enumeration value="WAITING_FOR_START_DATE" />
+		</xs:restriction>
+	</xs:simpleType>
+
+
+
+	
+	
+	
+
+</xs:schema>
