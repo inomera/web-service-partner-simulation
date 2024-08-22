@@ -393,15 +393,15 @@ is `http://www.avea.com.tr/pims-partner/schema/subscription`.
 ```xml
 
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
-   <SOAP-ENV:Header/>
-   <SOAP-ENV:Body>
-      <ns3:SubscriptionDeactivatedResponse xmlns:ns3="http://www.avea.com.tr/pims-partner/schema/subscription">
-         <ServiceResult>
-            <ResultCode>OK</ResultCode>
-            <ResultTxt>Service processed successfully</ResultTxt>
-         </ServiceResult>
-      </ns3:SubscriptionDeactivatedResponse>
-   </SOAP-ENV:Body>
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <ns3:SubscriptionDeactivatedResponse xmlns:ns3="http://www.avea.com.tr/pims-partner/schema/subscription">
+            <ServiceResult>
+                <ResultCode>OK</ResultCode>
+                <ResultTxt>Service processed successfully</ResultTxt>
+            </ServiceResult>
+        </ns3:SubscriptionDeactivatedResponse>
+    </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
@@ -431,6 +431,34 @@ information such as subscription keys, offer keys, creation dates, start dates, 
 
 The `PimsApiSecurityInterceptor` class handles basic authentication for the web service. It checks the `Authorization`
 header for valid credentials.
+
+## Build and Run
+
+This project supports both Maven and Gradle for building and running the application. The generated classes will be
+placed in the appropriate directory.
+
+### Prerequisites
+
+- JDK 21
+- Spring Boot 3.3.2
+
+### Using Maven
+
+To build and run the project using Maven, use the following commands:
+
+```shell
+./mvnw clean install
+./mvnw spring-boot:run
+```
+
+### Using Gradle
+
+To build and run the project using Gradle, use the following commands:
+
+```shell
+./gradlew clean build
+./gradlew bootRun
+```
 
 ## Contact
 
